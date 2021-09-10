@@ -1,0 +1,13 @@
+{% block sw_customer_card_metadata_customer_name %}
+    {% parent %}
+    {% block kplngi_review_image_file_display %}
+        <template v-if="media.url">
+            <div class="sw-review-detail__metadata-review-media">
+                <img
+                        :src="media.url"
+                        class="sw-review-detail__metadata-review-media-image"
+                        alt="media.filename">
+            </div>
+        </template>
+    {% endblock %}
+{% endblock %}

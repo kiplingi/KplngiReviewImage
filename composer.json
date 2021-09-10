@@ -1,0 +1,40 @@
+{
+    "name": "kplngi/review-image",
+    "description": "Image upload for customer reviews",
+    "version": "1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kiplingi",
+            "homepage": "https://kiplingi.de"
+        }
+    ],
+    "require": {
+        "shopware/core": "~6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kplngi\\ReviewImage\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Kplngi\\ReviewImage\\KplngiReviewImage",
+        "label": {
+            "de-DE": "Bild Upload für Kunden Bewertungen",
+            "en-GB": "Image Upload for customer reviews"
+        },
+        "description": {
+            "de-DE": "Die Produkt Bewertung wird um ein Upload Feld erweitert, womit Kunden Ihrer Bewertung ein optionales Bild hinzufügen können und welches dann unter der Bewertung angezeigt wird.",
+            "en-GB": "The product rating is extended by an upload field, with which customers can add an optional image to your rating and which is then displayed under the rating."
+        },
+        "manufacturerLink": {
+            "de-DE": "https://kiplingi.de",
+            "en-GB": "https://kiplingi.de"
+        },
+        "supportLink": {
+            "de-DE": "https://kiplingi.de",
+            "en-GB": "https://kiplingi.de"
+        }
+    }
+}

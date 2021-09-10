@@ -1,0 +1,12 @@
+{% sw_extends '@Storefront/storefront/component/review/review-form.html.twig' %}
+
+{% block component_review_form_content %}
+    {{ parent() }}
+
+    {% block kplngi_review_image_component_input %}
+        {% if page.extensions.kplngiReviewImageActive %}
+            {% sw_include '@KplngiReviewImage/storefront/component/review-image-input.html.twig' %}
+        {% endif %}
+    {% endblock %}
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% block kplngi_review_image_input %}
+    <div class="form-group">
+        <div
+                class="kplngi-reviewimage-input custom-file"
+                data-kplngi-reviewimage-input="true">
+
+            {% block kplngi_review_image_input_field %}
+                <div class="kplngi-reviewimage-input-field">
+                    <input
+                            type="file"
+                            name="reviewImageUpload"
+                            id="reviewImageUpload"
+                            accept="image/jpg, image/jpeg, image/png, image/gif, jpg, jpeg, png, gif"
+                            class="custom-file-input">
+                    <label class="custom-file-label"
+                           for="reviewImageUpload">{{ 'kplngiReviewImage.shop.label'|trans() }}</label>
+                </div>
+            {% endblock %}
+
+            {% block kplngi_review_image_alert %}
+                <div class="kplngi-reviewimage-input-validation d-none">
+                    {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                        type:"info",
+                        content: "kplngiReviewImage.shop.errorSize"|trans
+                    } %}
+                </div>
+            {% endblock %}
+
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{
+    "kplngiReviewImage": {
+        "shop": {
+            "label": "Fügen Sie Ihrer Bewertung ein Bild zu: ",
+            "errorSize": "Die hochgeladene Datei ist zu groß, bitte wählen Sie ein Bild welches kleiner als 2 MB ist."
+        }
+    }
+}

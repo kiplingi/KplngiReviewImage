@@ -1,0 +1,8 @@
+{
+    "kplngiReviewImage": {
+        "shop": {
+            "label": "Upload an image for your review: ",
+            "errorSize": "The file you uploaded is too big, please select a file smaller then 2 MB"
+        }
+    }
+}

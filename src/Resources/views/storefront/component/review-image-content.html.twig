@@ -1,0 +1,19 @@
+{% block kplngi_review_image_slide %}
+    <div class="row kplngi-reviewimage-image">
+        <div class="col-lg-12">
+            {% sw_include '@Storefront/storefront/element/cms-element-image-gallery.html.twig' with {
+                'mediaItems': mediaItems,
+                'zoom': false,
+                'zoomModal': true,
+                'displayMode': 'contain',
+                'gutter': 5,
+                'minHeight': '300px',
+                'navigationArrows': 'inside',
+                'navigationDots': 'inside',
+                'galleryPosition': 'left',
+                'isProduct': false,
+                'element': false
+            } %}
+        </div>
+    </div>
+{% endblock %}

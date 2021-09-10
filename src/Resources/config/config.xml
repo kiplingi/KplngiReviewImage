@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title lang="en-GB">Configuration</title>
+        <title lang="de-DE">Konfiguration</title>
+
+        <input-field type="bool">
+            <name>salesChannelActive</name>
+            <label lang="en-GB">Activate</label>
+            <label lang="de-DE">Aktivieren</label>
+            <helpText lang="en-GB">When active, the review image upload is active for this sales channel.</helpText>
+            <helpText lang="de-DE">Wenn aktiv wird der Bild Upload für Bewertungen für diesen Verkaufskanal aktiviert.</helpText>
+            <defaultValue>true</defaultValue>
+        </input-field>
+    </card>
+</config>

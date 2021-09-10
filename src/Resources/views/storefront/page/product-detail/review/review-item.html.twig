@@ -1,0 +1,14 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/review/review-item.html.twig' %}
+
+{% block page_product_detail_review_item_comment %}
+    {{ parent() }}
+
+    {% block kplngi_review_image_page_slide %}
+        {% if review.extensions.kplngiMedia %}
+            {% sw_include '@KplngiReviewImage/storefront/component/review-image-content.html.twig' with {
+                'mediaItems': review.extensions.kplngiMedia
+            } %}
+        {% endif %}
+    {% endblock %}
+
+{% endblock %}
