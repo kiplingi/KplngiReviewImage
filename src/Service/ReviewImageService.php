@@ -6,10 +6,13 @@ use Kplngi\ReviewImage\KplngiReviewImage;
 use Kplngi\ReviewImage\Review\ReviewMediaEntity;
 use Shopware\Core\Content\Media\File\FileSaver;
 use Shopware\Core\Content\Media\File\MediaFile;
+use Shopware\Core\Content\Media\MediaCollection;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenEvent;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsAnyFilter;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Util\Random;
 use Shopware\Core\Framework\Uuid\Uuid;
@@ -62,6 +65,31 @@ class ReviewImageService
         }
 
         $this->createReviewMedia($reviewId, $mediaId, $context);
+    }
+
+    public function addReviewMedia(EntitySearchResult $reviewCollection, Context $context): void
+    {
+        $reviews = $reviewCollection->getElements();
+        $reviewIds = $reviewCollection->getIds();
+
+        $criteria = new Criteria();
+        $criteria->addFilter(new EqualsAnyFilter('reviewId', $reviewIds));
+        $criteria->addAssociation('media');
+
+        $reviewMedia = $this->reviewImageRepository->search(
+            $criteria,
+            $context
+        );
+
+        foreach ($reviews as $review) {
+            foreach ($reviewMedia->getElements() as $reviewMediaItem) {
+                if ($review->getId() === $reviewMediaItem->getReviewId()) {
+                    $mediaCollection = new MediaCollection();
+                    $mediaCollection->add($reviewMediaItem->get('media'));
+                    $review->addExtension('kplngiMediaItem', $mediaCollection);
+                }
+            }
+        }
     }
 
     private function createMediaFileFromUpload(Context $context): ?string

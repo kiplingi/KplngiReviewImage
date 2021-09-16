@@ -4,9 +4,9 @@
     {{ parent() }}
 
     {% block kplngi_review_image_component_slide %}
-        {% if review.extensions.kplngiMedia %}
+        {% if review.extensions.kplngiMediaItem %}
             {% sw_include '@KplngiReviewImage/storefront/component/review-image-content.html.twig' with {
-                'mediaItems': review.extensions.kplngiMedia
+                'mediaItems': review.extensions.kplngiMediaItem
             } %}
         {% endif %}
     {% endblock %}

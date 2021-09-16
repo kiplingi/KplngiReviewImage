@@ -7,7 +7,6 @@
     <services>
         <service id="Kplngi\ReviewImage\Review\ReviewSubscriber">
             <tag name="kernel.event_subscriber"/>
-            <argument type="service" id="kplngi_review_image_media.repository"/>
             <argument type="service" id="Kplngi\ReviewImage\Service\ReviewImageService"/>
         </service>
 
