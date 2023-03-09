@@ -4,7 +4,6 @@ namespace Kplngi\ReviewImage;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\Framework\Plugin;
@@ -41,10 +40,8 @@ class KplngiReviewImage extends Plugin
 
     private function removeMediaFolder(Context $context): void
     {
-        /** @var EntityRepositoryInterface */
         $mediaFolderRepository = $this->container->get('media_folder.repository');
 
-        /** @var EntityRepositoryInterface $systemConfigRepository */
         $systemConfigRepository = $this->container->get('system_config.repository');
 
         $criteria = (new Criteria())->addFilter(new EqualsFilter('configurationKey', self::MEDIA_FOLDER_ID_KEY));
@@ -61,7 +58,6 @@ class KplngiReviewImage extends Plugin
 
     private function removeConfiguration(Context $context): void
     {
-        /** @var EntityRepositoryInterface $systemConfigRepository */
         $systemConfigRepository = $this->container->get('system_config.repository');
 
         $criteria = (new Criteria())->addFilter(new EqualsFilter('configurationKey', self::MEDIA_FOLDER_ID_KEY));
@@ -96,9 +92,7 @@ class KplngiReviewImage extends Plugin
     {
         $context = $installContext->getContext();
 
-        /** @var EntityRepositoryInterface */
         $mediaFolderRepo = $this->container->get('media_folder.repository');
-        /** @var EntityRepositoryInterface */
         $thumbnailSizesRepo = $this->container->get('media_thumbnail_size.repository');
 
         $thumbnailCriteria = new Criteria();

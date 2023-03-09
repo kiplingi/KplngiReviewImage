@@ -8,7 +8,7 @@ use Shopware\Core\Content\Media\File\FileSaver;
 use Shopware\Core\Content\Media\File\MediaFile;
 use Shopware\Core\Content\Media\MediaCollection;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Event\EntityWrittenEvent;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\EntitySearchResult;
@@ -22,17 +22,17 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class ReviewImageService
 {
-    private EntityRepositoryInterface $mediaRepository;
+    private EntityRepository $mediaRepository;
     private FileSaver $fileSaver;
     private RequestStack $requestStack;
-    private EntityRepositoryInterface $reviewImageRepository;
+    private EntityRepository $reviewImageRepository;
     private SystemConfigService $configService;
 
     public function __construct(
-        EntityRepositoryInterface $mediaRepository,
+        EntityRepository $mediaRepository,
         FileSaver                 $fileSaver,
         RequestStack              $requestStack,
-        EntityRepositoryInterface $reviewImageRepository,
+        EntityRepository $reviewImageRepository,
         SystemConfigService       $configService
     )
     {
