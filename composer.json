@@ -1,7 +1,7 @@
 {
     "name": "kplngi/review-image",
     "description": "Image upload for customer reviews",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "authors": [
